@@ -1,0 +1,214 @@
+h1 {
+    margin: 0;
+    text-align: center;
+
+}
+
+body {
+    display: flex;
+    background: #e3e4e6;
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+.header {
+    background: #7cb8e4;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.title {
+    color: #ffffff;
+}
+
+.wrpa {
+    width: 100%;
+}
+
+.  element {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto 0;
+    /*background: orange;*/
+    width: 95%;
+
+}
+
+/*.element:after {*/
+/*content: '';*/
+/*display: block;*/
+/*width: 100%;*/
+/*height: 0px;*/
+/*border-bottom: 2px solid black;*/
+
+/*}*/
+
+.template {
+    display: none;
+}
+
+.picture {
+    width: 30%;
+    height: 100px;
+    background: url("http://ichef.bbci.co.uk/wwfeatures/live/624_351/images/live/p0/4w/46/p04w46sp.jpg");
+    background-size: cover;
+    border-radius: 5px;
+
+}
+
+.details {
+    width: 46%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.name {
+    background: white;
+    height: 48%;
+    display: flex;
+    border-radius: 5px;
+
+}
+
+.count {
+    background: white;
+    height: 48%;
+    display: flex;
+    border-radius: 5px;
+}
+
+.content-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.buy {
+    width: 20%;
+    height: 100px;
+    background: #9ad5ff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buy > div {
+    font-size: 3em;
+    color: #0f75b1;
+}
+
+.addButton {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 70px;
+    height: 70px;
+    background: #62bd50;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+
+}
+
+.inputs {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 60%;
+}
+
+.inputTextStyle, .inputTextStyle {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid #C8CCD4;
+    background: none;
+    border-radius: 0;
+    color: #223254;
+    transition: all .15s ease;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Avenir
+
+}
+
+.inputTextStyle:focus, .inputTextStyle:focus {
+    background: none;
+    outline: none;
+}
+
+#nextBody {
+
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    flex-direction: column;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.label {
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.saveButtonStyle {
+    border: 2px solid #0f75b1;
+    color: #0f75b1;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+select {
+    display: block;
+    height: 30px;
+    border: 2px solid gray;
+    border-radius: 8px;
+    text-align-last: center;
+}
+
+.backButton {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 70px;
+    height: 70px;
+    background: #62bd50;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+
+}

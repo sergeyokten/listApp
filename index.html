@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+
+        <div class="element template">
+            <div class="picture"></div>
+            <div class="details">
+                <div class="name content-center">
+                    <div>name</div>
+                </div>
+                <div class="count content-center">
+                    <div>100</div>
+                </div>
+            </div>
+            <div class="buy">
+                <div> &#10003;</div>
+            </div>
+        </div>
+
+
+        <!--<div class="header">-->
+        <!--<h1 class="text">todo list</h1>-->
+        <!--</div>-->
+        <!--<div class="list">-->
+        <!--<div class="element">-->
+        <!--<div class="photo"></div>-->
+        <!--<div class="container">-->
+        <!--<div class="title">bread</div>-->
+        <!--<div class="pieces">2</div>-->
+        <!--</div>-->
+        <!--<div class="status"></div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="add-button">-->
+        <!--<span>add</span>-->
+        <!--</div>-->
+
+        <!--<script>-->
+        <!--let arr = [-->
+        <!--{title: 'potato', count: 3},-->
+        <!--{title: 'apple', count: 2},-->
+        <!--{title: 'peanapple', count: 1}-->
+
+        <!--];-->
+        <!--for (var i = 0; i < arr.length; i++) {-->
+        <!--let element = document.getElementsByClassName('element')[0];-->
+        <!--let cloneNode = element.cloneNode(true);-->
+        <!--let children = cloneNode.children;-->
+        <!--// console.log(childNodes);-->
+        <!--for (const child of children) {-->
+        <!--if (child.classList.contains('container')) {-->
+        <!--let childrenSubCollection = child.children;-->
+        <!--for (const childElement of childrenSubCollection) {-->
+        <!--if (childElement.classList.contains('title')) {-->
+        <!--childElement.innerText = arr[i].title;-->
+        <!--} else if (childElement.classList.contains('pieces')) {-->
+        <!--childElement.innerText = arr[i].count;-->
+        <!--}-->
+        <!--}-->
+        <!--}-->
+        <!--document.getElementsByClassName('list')[0].appendChild(cloneNode);-->
+        <!--}-->
+
+        <!--}-->
+
+        <!--let addButton = document.getElementsByClassName('add-button')[0];-->
+        <!--addButton.onclick = function () {-->
+        <!--location.href = "next.html"-->
+        <!--};-->
+
+
+        <!--let statusButtons = document.getElementsByClassName('status');-->
+        <!--for (const statusButton of statusButtons) {-->
+        <!--statusButton.onclick = function (e) {-->
+        <!--console.log(statusButton, e);-->
+        <!--let parentElement = statusButton.parentElement;-->
+        <!--console.log(parentElement);-->
+        <!--parentElement.remove();-->
+        <!--}-->
+
+        <!--}-->
+
+
+        <!--</script>-->
+
+        <div class="wrpa">
+            <div class="header">
+                <h1 class="title">buy me</h1>
+            </div>
+            <div class="list">
+
+            </div>
+        </div>
+
+
+        <div class="addButton">
+            <div>
+                &#10010;
+                <!--&#x271A;-->
+            </div>
+        </div>
+
+
+        <script>
+            // let list = [
+            //     {
+            //         photo: 'someUrl',
+            //         name: 'tomato',
+            //         count: 12
+            //     }, {
+            //         photo: 'someUrl',
+            //         name: 'potato',
+            //         count: 10
+            //     }, {
+            //         photo: 'someUrl',
+            //         name: 'milk',
+            //         count: 9
+            //     },
+            // ];
+
+            let element = document.getElementsByClassName('element')[0];
+
+            function initList() {
+                let list = JSON.parse(localStorage.getItem('products')) || [];
+                console.log(list.length);
+                console.log(list);
+                for (const product of list) {
+                    let clone = element.cloneNode(true);
+
+                    // at the end !
+                    console.log(clone, '----------');
+                    clone.setAttribute('id', product.id);
+                    //---------- !
+                    let childrenOfClone = clone.children;
+                    for (const childOfClone of childrenOfClone) {
+                        if (childOfClone.classList.contains('details')) {
+                            console.log(childOfClone);
+                            let collection = childOfClone.children;
+                            for (const childElement of collection) {
+                                if (childElement.classList.contains('name')) {
+                                    let name = childElement.children[0];
+                                    name.innerText = product.name;
+                                } else if (childElement.classList.contains('count')) {
+                                    let name = childElement.children[0];
+                                    name.innerText = product.count;
+                                }
+                            }
+                        } else if (childOfClone.classList.contains('picture')) {
+                            let photo = product.photo;
+                            childOfClone.style.backgroundImage = `url('${product.photo}')`;
+                            console.log(photo);
+                            console.log(childOfClone, '!!!!!');
+
+
+                        }
+                    }
+                    clone.classList.remove('template');
+                    let list = document.getElementsByClassName('list')[0];
+                    console.log(list);
+                    list.appendChild(clone);
+                }
+            }
+
+            initList();
+            let addButton = document.getElementsByClassName('addButton')[0];
+            addButton.onclick = function () {
+                location.href = 'next.html';
+            };
+            let buyButtons = document.getElementsByClassName('buy');
+            for (const btn of buyButtons) {
+                btn.onclick = function () {
+                    let parentElement = btn.parentElement;
+                    console.log(parentElement);
+                    let parrentID = parentElement.getAttribute('id');
+                    parentElement.remove();
+                    let products = JSON.parse(localStorage.getItem('products'));
+                    console.log(products, '1');
+                    products = products.filter(function (product) {
+
+                        if (product.id == parrentID) {
+                            return false;
+                        }
+                        return true;
+                    });
+                    console.log(products, '2');
+                    localStorage.setItem('products', JSON.stringify(products));
+
+
+                }
+            }
+
+
+        </script>
+    </body>
+</html>
+
